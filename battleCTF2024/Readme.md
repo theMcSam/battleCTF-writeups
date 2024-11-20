@@ -58,7 +58,11 @@ Flag: `battleCTF{pwn2live_d7c51d9effacfe021fa0246e031c63e9116d8366875555771349d9
 ### Do[ro x2]
 This was an interesting and very simple foresics challenge where were provided with a file having a *.ad1* (`roro.ad1`) extension. After a little googling and reading i discovered that it was an *evidence file* and the `AccessData FTK Imager` tool can be used to parse it.
 
-I quickly jumped to my windows virtual machine and download and installed `AccessData FTK Imager`.
+I quickly jumped to my windows virtual machine to download and install`AccessData FTK Imager`. After importing the evidence file `AccessData FTK Imager` asks for password.
+![FTK Imager Evidence File Import](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Dororo/images/FTK_imager_windows.png) 
+
+Immediately it hit me that the name of the challenge could be a hint to the password. I then tried the password `Dororo` and viola! i obtained the flag.
+
 
 ## Pwn
 ### Universe
