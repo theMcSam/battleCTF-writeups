@@ -51,7 +51,8 @@ $2a$12$ecui1lTmMWKRMR4jd44kfOkPx8leaL0tKChnNid4lNAbhr/YhPPxq:nohara
 ``` 
 
 Using this password and cyberchef i decrypted the data successfully to obtain the flag.
-![Invite Code Flag Image](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Invite%20Code/images/invite_code_flag.png)
+![Invite Code Flag Image](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Invite%20Code/images/invite_code_flag.png) 
+Flag: `battleCTF{pwn2live_d7c51d9effacfe021fa0246e031c63e9116d8366875555771349d96c2cf0a60b}`
 
 ## Forensics
 ### Do[ro x2]
