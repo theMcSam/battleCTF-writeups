@@ -16,7 +16,7 @@ First thing i did was to pick up the encoded data and place it into `cyberchef`.
 We can see that the data provided was a hex dump and `cyberchef` decoded it successfully resulting in a contatenation of base64 string and a link. The base64 string just leads us to the Rick Roll video in YouTube and so that isn't vert relevant.
 
 The other link `https://bugpwn.com/invite.ini` leads us to a page where some data is hosted on the website.
-
+![Invite .ini file](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Invite%20Code/images/invite_ini_file.png)
 
 ## Forensics
 ### Do[ro x2]
