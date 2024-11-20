@@ -1,5 +1,8 @@
 # BattleCTF 2024
+Hi there, i participated in the battleCTF2024 under the name `sigsegv`. 
 
+Here are the challenges i solved:
+![Challenges Solved](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/images/challenges_solved.png)   
 
 ## Misc
 ### Rules
