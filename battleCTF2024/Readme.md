@@ -4,7 +4,7 @@
 ## Misc
 ### Rules
 Upon joining the discord server and nagivating to the #announcements channel we obtain the flag.
-![Rule Challenge flag](https://raw.githubusercontent.com/theMcSam/battleCTF-writeups/refs/heads/main/Rules/images/rules_flag.png)
+![Rule Challenge flag](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Rules/images/rules_flag.png)
 
 
 ## Forensics
