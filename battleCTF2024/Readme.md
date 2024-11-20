@@ -84,4 +84,5 @@ We can see from the image on line 20 that the pointer **pcVar1** is dereferenced
 This seems very straight forward and we can immediately see that we can execute code. There's just one small problem. The function `FUN_00101208()` is called before all this. That function contains code to block certain syscalls using `seccomp`.
 ![Seccomp Load](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/seccomp_load.png) 
 
-![Seccomp Rule Add](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/seccomp_rule_add.png) 
+![Seccomp Rule Add](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/seccomp_rule_add.png)    
+
