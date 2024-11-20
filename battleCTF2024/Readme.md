@@ -73,8 +73,8 @@ For this pwn challenge we were proivded with a ELF binary `universe`. I run `che
 This is an x64 little endian exucutable with NX and PIE enabled.
 
 Next thing was to run the binary to see it's functionality before diving into any sorts of static or dynamic analysis techniques.
-![Running Universe](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Dororo/images/running_universe.png)
+![Running Universe](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/running_universe.png)
 
 After this i opened it up in `Ghidra` to view the decompilation and better understand how the `universe` executable was working.
 As always, i analyse the main function first since it is the entry point to every application.
- ![Ghidra Universe Main Func Decompilation](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Dororo/images/main_function_decompilation.png)
+ ![Ghidra Universe Main Func Decompilation](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/main_function_decompilation.png)
