@@ -67,3 +67,10 @@ Flag: `BattleCTF{You_d0_1t_like_4_pro_forensicator6578888}`
 
 ## Pwn
 ### Universe
+For this pwn challenge we were proivded with a ELF binary `universe`. I run `checksec` on the file to get a security overview of the file.
+![Checksec Universe](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Dororo/images/dororo_flag.png)  
+
+This is an x64 little endian exucutable with NX and PIE enabled.
+
+Next thing was to run the binary to see it's functionality before even diving into any sort of static or dynamic analysis.
+![Running Universe](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Dororo/images/running_universe.png)
