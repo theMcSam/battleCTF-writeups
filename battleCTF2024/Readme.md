@@ -62,7 +62,7 @@ I quickly jumped to my windows virtual machine to download and install`AccessDat
 ![FTK Imager Evidence File Import](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Dororo/images/FTK_imager_windows.png) 
 
 Immediately it hit me that the name of the challenge could be a hint to the password. I then tried the password `Dororo` and viola! i obtained the flag.
-
+![Doror Flag](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Dororo/images/dororo_flag.png) 
 
 ## Pwn
 ### Universe
