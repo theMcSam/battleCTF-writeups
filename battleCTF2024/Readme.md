@@ -41,7 +41,18 @@ b'\xac\xed\x00\x05t(\x83<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 	</user>
 </users>\r\n<!-- battleCTF AFRICA 2024 -->\r\n
 ``` 
-The content of the .gz file is an XML file with some interesting fields.
+The content of the .gz file is an XML file with some interesting fields. The `4cr_encrypt` field contains some encrypted data. I assumed that the name `4cr_encrypt` was just a wordplay of the actual enctyption scheme `rc4_encrypt`. Now that we are aware if the encyption scheme used we can attempt to decrypt it which would require a password. Luckily, we also have a password field in the XML file which is also hashed.
+
+At this point i saved the hash to a file and attempted to crack the password with John The Ripper. After a while we obtain the password.
+```
+mcsam@0x32:~/Desktop/ctf/AfricaBattleCTF$ hashcat -m 3200 hashes ~/Downloads/rockyou.txt 
+...
+$2a$12$ecui1lTmMWKRMR4jd44kfOkPx8leaL0tKChnNid4lNAbhr/YhPPxq:nohara
+``` 
+
+Using this password and cyberchef i decrypted the data successfully to obtain the flag.
+![Invite Code Flag Image](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Invite%20Code/images/invite_code_flag.png)
+
 ## Forensics
 ### Do[ro x2]
 
