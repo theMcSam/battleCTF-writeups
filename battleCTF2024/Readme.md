@@ -77,4 +77,8 @@ Next thing was to run the binary to see it's functionality before diving into an
 
 After this i opened it up in `Ghidra` to view the decompilation and better understand how the `universe` executable was working.
 As always, i analyse the main function first since it is the entry point to every application.
- ![Ghidra Universe Main Func Decompilation](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/main_function_decompilation.png)
+ ![Ghidra Universe Main Func Decompilation](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/main_function_decompilation.png) 
+
+We can see from the image on line 20 that the pointer **pcVar1** is dereferenced and and it's content is executed. We also observe on line 10 that **pcVar1** is a pointer to a free **0x1000** bytes of memory space. Inside the for loop on line 18 we see that data is read into **pcVar1** and the loop only breaks when the **0x1000** bytes is full. The content content of the pointer **pcVar1** is then executed.
+
+This seems very straight forward and we can immediately see that we can execute code. There's just one small problem. The function `FUN_00101208()` is called before all this. That function contains code to block certain syscalls using `seccomp`.
