@@ -19,7 +19,29 @@ The other link `https://bugpwn.com/invite.ini` leads us to a page where some dat
 ![Invite .ini file](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Invite%20Code/images/invite_ini_file.png)
 
 This looks like some base64 data. We can use `cyberchef` to decode this.
-![Invite .ini b64 data decoded](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Invite%20Code/images/invite_ini_b64_data_decoded.png)
+![Invite .ini b64 data decoded](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Invite%20Code/images/invite_ini_b64_data_decoded.png)    
+
+From `cyberchef` i downloaded the raw binary file and run the file command on it.
+```
+mcsam@0x32:~/Desktop/ctf/AfricaBattleCTF$ file download.gz 
+download.gz: gzip compressed data, last modified: Fri Oct  4 11:25:31 2024, max compression, original size modulo 2^32 1081
+```
+
+I then decided to attempt unzipping the file with gunzip. After unzipping i read the contents of the file.
+```
+mcsam@0x32:~/Desktop/ctf/AfricaBattleCTF$ gunzip download.gz 
+mcsam@0x32:~/Desktop/ctf/AfricaBattleCTF$ cat download
+b'\xac\xed\x00\x05t(\x83<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE users SYSTEM >
+<users max="81">
+	<user >
+		<loginname>battlectf</loginname>
+		<password>$2a$12$ecui1lTmMWKRMR4jd44kfOkPx8leaL0tKChnNid4lNAbhr/YhPPxq</password>
+		<4cr_encrypt>05 5F 26 74 9B 8D D7 09 49 EB 61 94 5D 07 7D 13 AA E8 75 CD 6A 1E 79 12 DA 1E 8A E7 2F 5F DB 87 E4 0D D2 13 E4 82 EE 10 AC A7 3A BF 54 B2 A4 A5 36 EA 2C 16 00 89 AE B8 22 0B F5 18 CA 03 32 C8 C6 6B 58 80 EC 70 77 6E 16 5C 56 82 6F AD 0B C5 97 69 E9 B8 4E 54 90 95 BB 4D ED 87 99 98 BF EC D4 E2 8A 0D C5 76 03 89 A6 11 AB 73 67 A0 75 AE 3C 84 B6 5D 21 03 71 B8 D9 A0 3B 62 C0 5B 12 DA 5C 91 87 19 63 02 A4 3B 04 9F E0 AD 75 3E 35 C3 FB 1B 5E CB F0 5A A7 8B DF 00 8B DC 88 24 EF F4 EE CE 5C 3B F3 20 10 C2 52 DF 57 D2 59 5E 3E 46 D0 85 10 89 AC 09 07 EF C5 EE 1D 2F 89 1D 83 51 C6 52 38 13 2A D0 20 66 6D 52 B1 93 1B 21 06 9F E5 00 B7 AB 30 EB 98 7F CB 80 17 36 16 EF 73 BB 59 60 E4 4B F0 8A BD FF 85 A1 37 5D 4E C0 91 92 F2 68 C5 20 68 A0 A7 84 EB</4cr_encrypt>
+	</user>
+</users>\r\n<!-- battleCTF AFRICA 2024 -->\r\n
+``` 
+The content of the .gz file is an XML file with some interesting fields.
 ## Forensics
 ### Do[ro x2]
 
