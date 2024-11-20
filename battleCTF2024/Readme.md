@@ -75,7 +75,7 @@ This is an x64 little endian exucutable with NX and PIE enabled.
 Next thing was to run the binary to see it's functionality before diving into any sorts of static or dynamic analysis techniques.
 ![Running Universe](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/running_universe.png)
 
-After this i opened it up in `Ghidra` to view the decompilation and better understand how the `universe` executable was working.
+After this, i opened it up in `Ghidra` to view the decompilation and better understand how the `universe` executable was working.
 As always, i analyse the main function first since it is the entry point to every application.
 ![Ghidra Universe Main Func Decompilation](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/main_function_decompilation.png) 
 
@@ -86,7 +86,7 @@ This seems very straight forward and we can immediately see that we can execute 
 
 ![Seccomp Rule Add](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/seccomp_rule_add.png)    
 
-After discovering this i used `seccomp-tools` to get a dump of the rules applied.
+After discovering this, i used `seccomp-tools` to get a dump of the rules applied.
 ![Seccomp Tools Dump](https://github.com/theMcSam/battleCTF-writeups/blob/main/battleCTF2024/Universe/images/seccomp_tools_dump.png)    
 
 We can see that certain `syscalls` have been blocked and as a result we would have to craft our exploit shellcode with a `syscalls` that have not been listed here. In most CTFs the goal is to obtain the flag so i started searching for alternative `syscalls` i could abuse to read files on the target and get the flag.  After some searching, i decided to go with the `openat()` `syscall` to open and read files.
@@ -119,7 +119,7 @@ Upon executing this script i obtained the flag.
 ```
 mcsam@0x32:~/Desktop/ctf/AfricaBattleCTF/pwn/universe$ python3 read.py 
 ...
-Africa battleCTF 2024s
+Africa battleCTF 2024
 By its very subject, cosmology flirts with metaphysics. Because how can we study an object from which we cannot extract ourselves? Einstein had this audacity and the Universe once again became an object of science. Without losing its philosophical dimension.
 What do you think of the universe?
 battleCTF{Are_W3_4l0ne_!n_7he_univ3rs3?_0e2899c65e58d028b0f553c80e5d413eeefef7af987fd4181e834ee6}
