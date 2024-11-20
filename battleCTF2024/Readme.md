@@ -3,7 +3,8 @@
 
 ## Misc
 ### Rules
-Upo joining the discord server and nagivating to the #announcements channel we obtain the flag.
+Upon joining the discord server and nagivating to the #announcements channel we obtain the flag.
+![Rule Challenge flag](https://raw.githubusercontent.com/theMcSam/battleCTF-writeups/refs/heads/main/Rules/images/rules_flag.png)
 
 
 ## Forensics
