@@ -56,6 +56,9 @@ Flag: `battleCTF{pwn2live_d7c51d9effacfe021fa0246e031c63e9116d8366875555771349d9
 
 ## Forensics
 ### Do[ro x2]
+This was an interesting and very simple foresics challenge where were provided with a file having a *.ad1* (`roro.ad1`) extension. After a little googling and reading i discovered that it was an *evidence file* and the `AccessData FTK Imager` tool can be used to parse it.
+
+I quickly jumped to my windows virtual machine and download and installed `AccessData FTK Imager`.
 
 ## Pwn
 ### Universe
